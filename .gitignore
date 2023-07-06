@@ -1,0 +1,14 @@
+.idea
+*.iml
+.settings/
+.html
+.project
+.classpath
+target/
+log/
+etc/ant/build\.ss-XPS-13-9360\.properties
+etc/ant/build.lenovoy40.properties
+project-ex.yml
+test-output
+*.pdf
+.DS_Store
