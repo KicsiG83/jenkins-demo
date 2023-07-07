@@ -1,4 +1,6 @@
-package jenkins.demo.demo.modul.hello;
+package jenkins.demo.modul.hello;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Hello Word for Jenkins demo
@@ -8,6 +10,7 @@ package jenkins.demo.demo.modul.hello;
  */
 public class Hello {
 
+    @Test
     public void helloJenkins() {
         System.out.println("Hello Jenkins demo");
     }
