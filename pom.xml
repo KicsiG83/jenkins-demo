@@ -4,6 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>hu.icellmobilsoft.pom</groupId>
+        <artifactId>parent-icellmobilsoft-pom</artifactId>
+        <version>1.2.0</version>
+    </parent>
+
     <groupId>jenkins-demo</groupId>
     <artifactId>demo</artifactId>
     <packaging>pom</packaging>
@@ -15,6 +21,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
+
+    <modules>
+        <module>demo-bom</module>
+        <module>demo-modul</module>
+    </modules>
 
     <build>
         <plugins>
