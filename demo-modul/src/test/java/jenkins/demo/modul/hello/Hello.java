@@ -1,5 +1,7 @@
 package jenkins.demo.modul.hello;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -11,8 +13,24 @@ import org.junit.jupiter.api.Test;
 public class Hello {
 
     @Test
-    public void helloJenkins() {
-        System.out.println("Hello Jenkins demo");
+    @DisplayName("Hello, i'm Jenkins demo smoke test")
+    public void helloJenkinsSmoke() {
+        System.out.println("Hello, i'm Jenkins demo smoke test");
+        Assertions.assertTrue(true);
+    }
+
+    @Test
+    @DisplayName("Hello, i'm Jenkins demo another test")
+    public void helloJenkinsAnother() {
+        System.out.println("Hello i'm Jenkins demo another test");
+        Assertions.assertTrue(true);
+    }
+
+    @Test
+    @DisplayName("Hello, i'm Jenkins demo failure test")
+    public void helloJenkinsFailed() {
+        System.out.println("Hello i'm Jenkins demo failed test");
+        Assertions.assertTrue(false);
     }
 
 }
