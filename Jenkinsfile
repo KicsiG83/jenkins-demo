@@ -16,6 +16,11 @@ pipeline {
                 checkout scm
             }
         }
+		stage('start compile') {
+			steps {
+				echo 'start compile'
+			}	
+		}
         stage('Compile') {
             steps {
                 withMaven {
@@ -23,6 +28,16 @@ pipeline {
                 }
             }
         }
+		stage('end compile') {
+			steps {
+				echo 'end compile'
+			}	
+		}
+		stage('start test') {
+			steps {
+				echo 'start test'
+			}	
+		}
 		stage('Test') {
             steps {
                 withMaven {
@@ -30,6 +45,11 @@ pipeline {
                 }
             }
         }
+		stage('end test') {
+			steps {
+				echo 'end test'
+			}	
+		}
     }
 }
 
