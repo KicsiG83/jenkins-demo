@@ -16,10 +16,17 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build') {
+        stage('Compile') {
             steps {
                 withMaven {
-                    sh 'mvn clean package'
+                    bat 'mvn clean compile'
+                }
+            }
+        }
+		stage('Test') {
+            steps {
+                withMaven {
+                    bat 'mvn test'
                 }
             }
         }
