@@ -12,7 +12,7 @@ pipeline {
     stages {
 		stage('Check for existence file') {
 			script {
-				if (fileExists('C:/workspaces/jenkins/jenkins-demo/demo.groovy')) {
+				if (fileExists('demo.groovy')) {
 					echo 'groovy found!'
 				}
 			}
