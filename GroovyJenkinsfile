@@ -34,16 +34,21 @@ pipeline {
 		}
         stage('Compile') {
             steps {
+				// imperative code
 				script {
 					gv.print("Compile is starting...")
 				}
 				withMaven {
 					bat 'mvn clean compile'
 				}
+				script {
+					gv.print("Compile is finished.")
+				}
             }
         }
 		stage('Test') {
             steps {
+				// declarative code
 				echo 'start test'
                 withMaven {
                     bat 'mvn test'
