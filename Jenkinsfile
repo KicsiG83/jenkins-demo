@@ -10,9 +10,9 @@ pipeline {
         cron('@midnight')
     }
     stages {
-		stage ('Check for existence file') {
-			if (fileExists('C:/workspaces/jenkins/jenkins-demo/demo.groovy')) {
-				echo "groovy found!"
+		stage('Check for existence file') {
+			if (fileExists('C:\workspaces\jenkins\jenkins-demo/demo.groovy')) {
+				echo 'groovy found!'
 			}
 		}
         stage('Clean') {
