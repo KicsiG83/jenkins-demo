@@ -12,19 +12,13 @@ pipeline {
         cron('@midnight')
     }
     stages {
-		stage('groovy version') {
-			steps {
-				withGroovy {
-					bat 'groovy --version'
-				}
-			}
-		}
 		stage('Check for existence file') {
 			steps {
 				script {
 					if (fileExists('demo.groovy')) {
 						echo 'groovy found!'
 						gv = load('demo.groovy')
+						echo 'groovy load successful'
 					} else {
 						echo 'no groovy file found'
 				}	}
