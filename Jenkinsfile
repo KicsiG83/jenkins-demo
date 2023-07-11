@@ -1,3 +1,5 @@
+def gv
+
 pipeline {
     agent any
     options {
@@ -10,10 +12,14 @@ pipeline {
         cron('@midnight')
     }
     stages {
+		stage('init') {
+			steps {
+				gv = load "demo.groovy"
+			}
+		}
         stage('Clean') {
             steps {
-                deleteDir()
-                checkout scm
+                gv.clean()
             }
         }
         stage('Compile') {
