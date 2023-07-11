@@ -35,7 +35,10 @@ pipeline {
         stage('Compile') {
             steps {
 				script {
-					gv.compile()
+					gv.print("Compile is starting...")
+				}
+				withMaven {
+					bat 'mvn clean compile'
 				}
             }
         }

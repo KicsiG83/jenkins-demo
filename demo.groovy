@@ -1,9 +1,5 @@
-	def compile() {
-		bat 'compile is starting...'
-		withMaven {
-			bat 'mvn clean compile'
-		}
-		bat 'compile is finished.'
+	def print(String message) {
+		bat "${message}"
 	}
 	
 	return this
