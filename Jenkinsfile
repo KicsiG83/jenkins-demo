@@ -17,7 +17,7 @@ pipeline {
 				script {
 					if (fileExists('demo.groovy')) {
 						echo 'groovy found!'
-						gv = load('demo.groovy')
+						gv = load "demo.groovy"
 						echo 'groovy load successful'
 					} else {
 						echo 'no groovy file found'
