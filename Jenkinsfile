@@ -11,9 +11,11 @@ pipeline {
     }
     stages {
 		stage('Check for existence file') {
-			script {
-				if (fileExists('demo.groovy')) {
-					echo 'groovy found!'
+			steps {
+				script {
+					if (fileExists('demo.groovy')) {
+						echo 'groovy found!'
+					}
 				}
 			}
 		}
