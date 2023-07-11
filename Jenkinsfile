@@ -1,5 +1,3 @@
-def gv
-
 pipeline {
     agent any
     options {
@@ -12,23 +10,12 @@ pipeline {
         cron('@midnight')
     }
     stages {
-		stage('Check for existence file') {
-			steps {
-				script {
-					if (fileExists('demo.groovy')) {
-						echo 'groovy found!'
-						gv = load "demo.groovy"
-						echo 'groovy load successful'
-					} else {
-						echo 'no groovy file found'
-				}	}
-			}
-		}
         stage('Clean') {
             steps {
-				script {
-					gv.cleanApp()
-				}
+				echo 'clean is started...'
+				deleteDir()
+				checkout scm
+				echo 'clean is finished'
             }
         }
         stage('Compile') {
