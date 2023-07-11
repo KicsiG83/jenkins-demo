@@ -12,7 +12,15 @@ pipeline {
         cron('@midnight')
     }
     stages {
-		stage('Check for existence file') {
+		stage('clearStage') {
+			steps('Clear stage') {
+				echo 'clean is started...'
+				deleteDir()
+				checkout scm
+				echo 'clean is finished'
+			}
+		}
+		stage('Check and load groovy file') {
 			steps {
 				script {
 					if (fileExists('demo.groovy')) {
@@ -24,18 +32,11 @@ pipeline {
 				}	}
 			}
 		}
-        stage('Clean') {
-            steps {
-				script {
-					gv.cleanApp()
-				}
-            }
-        }
         stage('Compile') {
             steps {
-				withMaven {
-                    bat 'mvn clean compile'
-                }
+				script {
+					gv.compile()
+				}
             }
         }
 		stage('Test') {

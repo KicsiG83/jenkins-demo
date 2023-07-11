@@ -1,8 +1,9 @@
-	def cleanApp() {
-		echo 'clean is started...'
-		deleteDir()
-		checkout scm
-		echo 'clean is finished'
+	def compile() {
+		bat 'compile is starting...'
+		withMaven {
+			bat 'mvn clean compile'
+		}
+		bat 'compile is finished.'
 	}
 	
 	return this
