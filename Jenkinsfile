@@ -24,7 +24,7 @@ pipeline {
 				script {
 					if (fileExists('demo.groovy')) {
 						echo 'groovy found!'
-						gv = load('demo.groovy')
+						gv = load'demo.groovy'
 					} else {
 						echo 'no groovy file found'
 				}	}
@@ -32,6 +32,9 @@ pipeline {
 		}
         stage('Clean') {
             steps {
+			script {
+				gv.cleanApp()
+			}
 				echo 'clean is started...'
 				deleteDir()
 				checkout scm
