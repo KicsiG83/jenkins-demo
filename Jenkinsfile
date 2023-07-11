@@ -15,8 +15,9 @@ pipeline {
 				script {
 					if (fileExists('demo.groovy')) {
 						echo 'groovy found!'
-					}
-				}
+					} else {
+						echo 'no groovy file found'
+				}	}
 			}
 		}
         stage('Clean') {
