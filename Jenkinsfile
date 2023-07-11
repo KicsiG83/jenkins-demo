@@ -16,40 +16,24 @@ pipeline {
                 checkout scm
             }
         }
-		stage('start compile') {
-			steps {
-				echo 'start compile'
-			}	
-		}
         stage('Compile') {
             steps {
-                withMaven {
+				echo 'start compile'
+				withMaven {
                     bat 'mvn clean compile'
                 }
+				echo 'end compile'
             }
         }
-		stage('end compile') {
-			steps {
-				echo 'end compile'
-			}	
-		}
-		stage('start test') {
-			steps {
-				echo 'start test'
-			}	
-		}
 		stage('Test') {
             steps {
+				echo 'start test'
                 withMaven {
                     bat 'mvn test'
                 }
+				echo 'end test'
             }
         }
-		stage('end test') {
-			steps {
-				echo 'end test'
-			}	
-		}
     }
 }
 
