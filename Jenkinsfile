@@ -15,7 +15,7 @@ pipeline {
 		stage('groovy version') {
 			steps {
 				withGroovy {
-					bat 'groovy --version'
+					sh 'groovy --version'
 				}
 			}
 		}
