@@ -12,19 +12,15 @@ pipeline {
     stages {
         stage('Clean') {
             steps {
-				echo 'clean is started...'
 				deleteDir()
 				checkout scm
-				echo 'clean is finished'
             }
         }
         stage('Compile') {
             steps {
-				echo 'start compile'
 				withMaven {
                     bat 'mvn clean compile'
                 }
-				echo 'end compile'
             }
         }
 		stage('Test') {
