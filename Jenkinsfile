@@ -14,12 +14,16 @@ pipeline {
     stages {
 		stage('init') {
 			steps {
-				gv = load "demo.groovy"
+				script {
+					gv = load "demo.groovy"
+				}
 			}
 		}
         stage('Clean') {
             steps {
-                gv.clean()
+				script {
+					gv.clean()
+				}
             }
         }
         stage('Compile') {
