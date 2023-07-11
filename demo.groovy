@@ -1,5 +1,5 @@
 	def print(String message) {
-		bat "${message}"
+		echo "${message}"
 	}
 	
 	return this
