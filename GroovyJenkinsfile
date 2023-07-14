@@ -28,7 +28,7 @@ pipeline {
 						gv = load "demo.groovy"
 						echo 'Loading groovy file is successful.'
 					} else {
-						echo '!!Oops!! I couldn't find the groovy file ¯\\_(ツ)_/¯ ....'
+						echo '!!Oops!! I couldn't find the groovy file ¯/\_(ツ)_/¯ ....'
 				}	}
 			}
 		}
