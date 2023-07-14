@@ -12,8 +12,8 @@ pipeline {
         cron('@midnight')
     }
     stages {
-		stage('clearStage') {
-			steps('Clear stage') {
+		stage('Clean') {
+			steps('Clean stage') {
 				echo 'Cleaning begins...'
 				deleteDir()
 				checkout scm
@@ -26,9 +26,9 @@ pipeline {
 					if (fileExists('demo.groovy')) {
 						echo 'groovy found!'
 						gv = load "demo.groovy"
-						echo 'groovy load successful'
+						echo 'Loading groovy file is successful.'
 					} else {
-						echo 'no groovy file found'
+						echo '!!Oops!! I couldn't find the groovy file ¯\_(ツ)_/¯ ....'
 				}	}
 			}
 		}
