@@ -12,26 +12,28 @@ pipeline {
     stages {
         stage('Clean') {
             steps {
-				echo 'clean is started...'
+				echo 'Cleaning begins...'
 				deleteDir()
 				checkout scm
-				echo 'clean is finished'
+				echo 'Cleaning is finished.'
             }
         }
         stage('Compile') {
             steps {
+				echo 'Compile begins...'
 				withMaven {
                     bat 'mvn clean compile'
                 }
+				echo 'Compile is finished.'
             }
         }
 		stage('Test') {
             steps {
-				echo 'start test'
+				echo 'Test begins...'
                 withMaven {
                     bat 'mvn test'
                 }
-				echo 'end test'
+				echo 'Test is finished.'
             }
         }
     }

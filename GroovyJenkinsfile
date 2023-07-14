@@ -14,10 +14,10 @@ pipeline {
     stages {
 		stage('clearStage') {
 			steps('Clear stage') {
-				echo 'clean is started...'
+				echo 'Cleaning begins...'
 				deleteDir()
 				checkout scm
-				echo 'clean is finished'
+				echo 'Cleaning is finished'
 			}
 		}
 		stage('Check and load groovy file') {
@@ -34,9 +34,8 @@ pipeline {
 		}
         stage('Compile') {
             steps {
-				// imperative code
 				script {
-					gv.print("Compile is starting...")
+					gv.print("Compile begins...")
 				}
 				withMaven {
 					bat 'mvn clean compile'
@@ -48,12 +47,11 @@ pipeline {
         }
 		stage('Test') {
             steps {
-				// declarative code
-				echo 'start test'
+				echo 'Test begins...'
                 withMaven {
                     bat 'mvn test'
                 }
-				echo 'end test'
+				echo 'Test is finished.'
             }
         }
     }
