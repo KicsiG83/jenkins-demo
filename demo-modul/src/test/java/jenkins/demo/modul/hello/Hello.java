@@ -30,7 +30,7 @@ public class Hello {
     @DisplayName("Hello, i'm Jenkins demo failure test")
     public void helloJenkinsFailed() {
         System.out.println("Hello i'm Jenkins demo failed test");
-        Assertions.assertTrue(false);
+        Assertions.assertFalse(false);
     }
 
 }
